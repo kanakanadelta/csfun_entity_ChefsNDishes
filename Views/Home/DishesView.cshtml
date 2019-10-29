@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Dishes";
+}
+
+<div class="text-center">
+    <h1 class="display-4 border-bottom">Yum, take a look at our tasty dishes!</h1>
+    <div>
+        <a href="/newDish">Add a Dish</a>
+    </div>
+    <div>
+        <table id="display-table" display="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Chef</th>
+                    <th>Tastiness</th>
+                    <th>Calories</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var dish in ViewBag.Dishes)
+                {
+                    <tr>
+                        <td>
+                            @dish.Name
+                        </td>
+                        <td>
+                            <span>@dish.Creator.FirstName </span>
+                            <span>@dish.Creator.LastName</span>
+                        </td>
+                        <td>
+                            @dish.Tastiness
+                        </td>
+                        <td>
+                            @dish.Calories
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
